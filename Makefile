@@ -11,4 +11,12 @@ $(EXECUTABLE): $(OBJECTS)
 $(CC) $(CFLAGS) $(OBJECTS)
 
 .c.o:
-	
+	$(CC) $(CFLAGS) -c $< -o $@ 
+
+clean: 
+	rm -f $(OBJECTS)
+
+flcean:
+	rm -f $(EXECUTABLE)
+
+re: fclean all 
