@@ -8,7 +8,7 @@ EXECUTABLE = mastermind
 all: $(OBJECTS) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS)-o $(EXECUTABLE)
+	$(CC) $(CFLAGS) $(OBJECTS) -o $(EXECUTABLE)
 
 $(OBJECTS): %.o: %.c  
 	$(CC) $(CFLAGS) -c $< -o $@ 
