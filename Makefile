@@ -1,14 +1,14 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SOURCES = mastermind.c game.c input.c output.c 
+SOURCES = mastermind.c 
 OBJECTS = $(SOURCES:.c=.o)
 EXECUTABLE = mastermind
 
 all: $(OBJECTS) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) -o $(EXECUTABLE)
+	$(CC) $(CFLAGS) $(OBJECTS)-o $(EXECUTABLE)
 
 $(OBJECTS): %.o: %.c  
 	$(CC) $(CFLAGS) -c $< -o $@ 
