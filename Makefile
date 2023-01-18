@@ -5,18 +5,18 @@ SOURCES = mastermind.c game.c input.c output.c
 OBJECTS = $(SOURCES:.c=.o)
 EXECUTABLE = mastermind
 
-all: $(SOURCES) $(EXECUTABLE)
+all: $(OBJECTS) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-$(CC) $(CFLAGS) $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) -o $(EXECUTABLE)
 
-.c.o:
+$(OBJECTS): %.o: %.c  
 	$(CC) $(CFLAGS) -c $< -o $@ 
 
 clean: 
 	rm -f $(OBJECTS)
 
-flcean:
+fclean:
 	rm -f $(EXECUTABLE)
 
 re: fclean all 
