@@ -45,7 +45,7 @@ int main(int argc, char **argv) {
         // Get guess from user
         printf("Round %d\n", i + 1);
         printf("> ");
-        if (fgets(guess, sizeof(guess), stdin) == NULL) {
+        if (read(STDIN_FILENO, guess, sizeof(guess))) {
             printf("\n");
             break;
         }
