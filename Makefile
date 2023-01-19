@@ -1,9 +1,9 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SOURCES = mastermind.c 
+SOURCES = my_mastermind.c 
 OBJECTS = $(SOURCES:.c=.o)
-EXECUTABLE = mastermind
+EXECUTABLE = my_mastermind
 
 all: $(OBJECTS) $(EXECUTABLE)
 
@@ -17,6 +17,6 @@ clean:
 	rm -f $(OBJECTS)
 
 fclean:
-	rm -f $(EXECUTABLE)
+	rm -f $(EXECUTABLE) $(OBJECTS)
 
 re: fclean all 
