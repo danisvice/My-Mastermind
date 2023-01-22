@@ -45,11 +45,11 @@ int main(int argc, char **argv) {
         // Get guess from user
         printf("Round %d\n", i + 1);
         printf("> ");
-        if (read(STDIN_FILENO, guess, sizeof(guess))) {
+        int bytes_read = read(STDIN_FILENO, guess, sizeof(guess)-1);
+        if(bytes_read <= 0){
             printf("\n");
             break;
         }
-        guess[strcspn(guess, "\n")] = 0;
 
         // Check for invalid input
         if (strlen(guess) != CODE_LENGTH) {
