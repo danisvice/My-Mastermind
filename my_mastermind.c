@@ -7,7 +7,8 @@
 #define MAX_ATTEMPTS 10
 #define CODE_LENGTH 4
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv) 
+{
     char secret_code[CODE_LENGTH + 1];
     int attempts = MAX_ATTEMPTS;
 
@@ -15,8 +16,10 @@ int main(int argc, char **argv) {
 
     // Handle command line arguments
     int opt;
-    while ((opt = getopt(argc, argv, "c:t:")) != -1) {
-        switch (opt) {
+    while ((opt = getopt(argc, argv, "c:t:")) != -1) 
+    {
+        switch (opt) 
+        {
             case 'c':
                 strncpy(secret_code, optarg, CODE_LENGTH);
                 break;
@@ -27,8 +30,10 @@ int main(int argc, char **argv) {
     }
 
     // Generate random code if none was specified
-    if (!secret_code[0]) {
-        for (int i = 0; i < CODE_LENGTH; i++) {
+    if (!secret_code[0]) 
+    {
+        for (int i = 0; i < CODE_LENGTH; i++) 
+        {
             secret_code[i] = rand() % 10 + '0';
         }
     }
@@ -38,18 +43,30 @@ int main(int argc, char **argv) {
     printf("Please enter a valid guess\n");
 
     // Loop for each attempt
-    for (int i = 0; i < attempts; i++) {
+    for (int i = 0; i < attempts; i++) 
+    {
         char guess[CODE_LENGTH + 1];
         int well_placed = 0, misplaced = 0;
 
         // Get guess from user
         printf("Round %d\n", i + 1);
         printf("> ");
+
         int bytes_read = read(STDIN_FILENO, guess, sizeof(guess)-1);
-        if(bytes_read <= 0){
-            printf("\n");
-            break;
-        }
+            if(bytes_read <= 0)
+            {
+                printf("\n");
+                break;                
+            }
+
+        for(int j = 0; j < bytes_read; j++)
+        {
+            if(guess[j] == '\n')
+            {
+               guess[j] = '\0';
+               break;
+            }
+        }        
 
         // Check for invalid input
         if (strlen(guess) != CODE_LENGTH) {
@@ -58,12 +75,16 @@ int main(int argc, char **argv) {
         }
 
         // Check for well-placed and misplaced pieces
-        for (int j = 0; j < CODE_LENGTH; j++) {
-            if (guess[j] == secret_code[j]) {
+        for (int j = 0; j < CODE_LENGTH; j++) 
+        {
+            if (guess[j] == secret_code[j]) 
+            {
                 well_placed++;
             } else {
-                for (int k = 0; k < CODE_LENGTH; k++) {
-                    if (guess[j] == secret_code[k]) {
+                for (int k = 0; k < CODE_LENGTH; k++) 
+                {
+                    if (guess[j] == secret_code[k]) 
+                    {
                         misplaced++;
                         break;
                     }
@@ -72,7 +93,8 @@ int main(int argc, char **argv) {
         }
 
         // Check for win
-        if (well_placed == CODE_LENGTH) {
+        if (well_placed == CODE_LENGTH) 
+        {
             printf("Congratz! You did it!\n");
             return 0;
         }
