@@ -92,18 +92,12 @@ int main(int argc, char **argv)
         }        
 
         //Check for invalid input
-        // int fd = open("input_string", O_RDONLY);
-        // int bytes_read = 0;
-
-        // bytes_read = read(fd, guess, CODE_LENGTH);
-
-        // if (bytes_read != CODE_LENGTH) 
-        // {
-        // // Print result
-        //     printf("Well placed pieces: %d\n", well_placed);
-        //     printf("Misplaced pieces: %d\n", misplaced);
-        // continue;
-        // }
+        
+        if (strlen(guess) != CODE_LENGTH) 
+    {
+        printf("Invalid input, please try again\n");
+        continue;
+    }
 
 
         // Check for well-placed and misplaced pieces
