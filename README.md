@@ -3,6 +3,14 @@
 
 ## Task
 TODO - What is the problem? And where is the challenge?
++ generate code
++ check command line flags (-t [input], -c [input])
+- REPL (Read Evaluate Print Loop)
+{
+    validate input
+    ....
+}
+- 
 
 ## Description
 TODO - How have you solved the problem?

@@ -8,15 +8,15 @@ EXECUTABLE = my_mastermind
 all: $(OBJECTS) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) -o $(EXECUTABLE)
+	@$(CC) $(CFLAGS) $(OBJECTS) -o $(EXECUTABLE)
 
 $(OBJECTS): %.o: %.c  
-	$(CC) $(CFLAGS) -c $< -o $@ 
+	@$(CC) $(CFLAGS) -c $< -o $@ 
 
 clean: 
-	rm -f $(OBJECTS)
+	@rm -f $(OBJECTS)
 
 fclean:
-	rm -f $(EXECUTABLE) $(OBJECTS)
+	@rm -f $(EXECUTABLE) $(OBJECTS)
 
 re: fclean all 
