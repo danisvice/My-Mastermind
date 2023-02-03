@@ -71,30 +71,60 @@ bool iswin(int well_placed)
 // Check for well-placed and misplaced pieces
 void check_placing(char* guess, char* code, int* well_placed, int* misplaced)
 {
-    for(int round = 0; round < CODE_LEN; round++)
+    int used[CODE_LEN];
+    for (int i = 0; i < CODE_LEN; i++)
     {
-        for (int j = 0; j < CODE_LEN; j++) 
+        used[i] = 0;
+    }
+
+    for (int i = 0; i < CODE_LEN; i++)
+    {
+        if (guess[i] == code[i])
         {
-            if (guess[j] == code[j]) 
+            (*well_placed) += 1;
+            used[i] = 1;
+        }
+        else
+        {
+            for (int j = 0; j < CODE_LEN; j++)
             {
-                (*well_placed)++;
-                break;
-            }
-            else
-            {
-                for (int k = 0; k < CODE_LEN; k++) 
+                if (guess[i] == code[j] && !used[j])
                 {
-                    
-                    if (guess[j] == code[k]) 
-                    {
-                        (*misplaced)++;
-                        break;
-                    }
+                    (*misplaced) += 1;
+                    used[j] = 1;
+                    break;
                 }
             }
         }
     }
 }
+
+// void check_placing(char* guess, char* code, int* well_placed, int* misplaced)
+// {
+//     for(int round = 0; round < CODE_LEN; round++)
+//     {
+//         for (int j = 0; j < CODE_LEN; j++) 
+//         {
+//             if (guess[j] == code[j]) 
+//             {
+//                 (*well_placed)+=1;
+//                 break;
+//             }
+//             else
+//             {
+//                 for (int k = 0; k < CODE_LEN; k++) 
+//                 {
+                    
+//                     if (guess[j] == code[k]) 
+//                     {
+//                         (*misplaced)+=1;
+//                         break;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
 
 
 int main(int argc, char **argv)
@@ -129,9 +159,10 @@ int main(int argc, char **argv)
     printf( "Will you find the secret code?\n" 
             "Please enter a valid guess\n");// <-- void greet_user(void);
     // For-Loop for each attempt
-    while (round < rounds)
+    while (round < rounds && !iswin(well_placed)) 
     {
         char guess[READ_LEN + 1] = {0};// '\0'<-- not good? + cREAD_LEN vs CODE..
+        valid_input = true;
         well_placed = 0, misplaced = 0;
         // Get guess from user
         // printf("rounds %d\n", rounds);
