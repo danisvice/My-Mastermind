@@ -59,7 +59,8 @@ void check_user_input(bool* valid_input, char input)
 void print_result(int well_placed, int misplaced)
 {
     printf( "Well placed pieces: %d\n" 
-            "Misplaced pieces: %d\n", well_placed, misplaced);
+              "Misplaced pieces: %d\n", 
+               well_placed, misplaced);
 }
 
 bool iswin(int well_placed) 
@@ -107,12 +108,16 @@ void check_placing(char* guess, char* code, int* well_placed, int* misplaced)
 int main(int argc, char **argv)
 {
     (void)argc; (void)argv;
-    char code[CODE_LEN + 1] = {0}, input = '0';// code non-init might be random memory values
-    // code = [123402983, 0, 0, 2343434, 0023434] <-- not initialized
+    // code non-init might be random memory values
+    // code = [123402983, 0, 0, 2343434, 0023434] not initialized
+    char code[CODE_LEN + 1] = {0}, input = '0';
     int rounds = ROUND_LEN, round = 0, index = 0, well_placed, misplaced;
-    bool valid_input = true;// ! bool guess2short = false;
-    ssize_t nbytes;// ssize_t => signed long int (nb_bytes_read with -1 as error)
-    setbuf(stdout, NULL); // man setbuf(3)
+    // ! bool guess2short = false;
+    bool valid_input = true;
+    // ssize_t => signed long int (nb_bytes_read with -1 as error)
+    ssize_t nbytes;
+    // man setbuf(3)
+    setbuf(stdout, NULL);
     srand(time(NULL));
 
     // Handle command line arguments
@@ -158,7 +163,7 @@ int main(int argc, char **argv)
         valid_input = true;
         while (index < READ_LEN) { // ['0', '2', '2', '3', '\n', '\0']
             if (isdigit(input) == false)
-            {// \n
+            {   // \n
                 // break; && continue; ?
                 valid_input = false;
                 break;
