@@ -2,7 +2,7 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+
 + generate code
 + check command line flags (-t [input], -c [input])
 - REPL (Read Evaluate Print Loop)
@@ -10,16 +10,22 @@ TODO - What is the problem? And where is the challenge?
     validate input
     ....
 }
-- 
++ linear sequence program
++ DRY implementation
++ syscall implementation
 
 ## Description
-TODO - How have you solved the problem?
+The problem was solved by creating specific functions for each portion of the program using
+void(). Afterwards, the void() functions are plugged into the main() function, using conditional 
+statements, syscalls, C methods and creating a linear sequence for easier readability 
+for the developer(s).
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
-
+The program is installed via the terminal in the IDE and uses a Makefile for compilation purposes of the project.
+Once the Makefile rules are outlined, the developer runs 'make && ./my_mastermind',
+utilizing the executable command in order to test the program. 
 ## Usage
-TODO - How does it work?
+The program passes all of the unit tests and works accordingly. 
 ```
 ./my_project argument1 argument2
 ```
