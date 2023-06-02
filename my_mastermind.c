@@ -33,8 +33,8 @@ void generate_code(char* code)
             code[round] = rand() % 10 + '0';
         }
     }// mv to own function simplicity!!!
-    printf("Random code: "); // debug! to be removed
-    print_char_buf(code, CODE_LEN); // debug! to be removed
+    //printf("Random code: "); // debug! to be removed
+    //print_char_buf(code, CODE_LEN); // debug! to be removed
 }
 
 // handles wrong inputs (too long or too short) 
