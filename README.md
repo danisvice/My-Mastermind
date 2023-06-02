@@ -25,10 +25,10 @@ utilizing the executable command in order to test the program.
 1. Download Project via .zip file or git clone 
 2. Open Terminal
 3. Navigate to project: 
-    User/My-Mastermind user$ 
+ex: ```User/My-Mastermind user$``` 
 4. 
-    compile && run: make && ./my_mastermind
-    exit: Ctrl + D
+    compile && run: ```make && ./my_mastermind```
+    exit: ```Ctrl + D```
 ```
 ./my_project argument1 argument2
 ```
