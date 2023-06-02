@@ -15,17 +15,20 @@
 + syscall implementation
 
 ## Description
-The problem was solved by creating specific functions for each portion of the program using
-void(). Afterwards, the void() functions are plugged into the main() function, using conditional 
-statements, syscalls, C methods and creating a linear sequence for easier readability 
-for the developer(s).
+Implemented a command-line version of the Mastermind game in C, featuring random code generation, user input validation, and a checking algorithm to determine well-placed and misplaced pieces in the user's guesses.
 
 ## Installation
 The program is installed via the terminal in the IDE and uses a Makefile for compilation purposes of the project.
 Once the Makefile rules are outlined, the developer runs 'make && ./my_mastermind',
 utilizing the executable command in order to test the program. 
 ## Usage
-The program passes all of the unit tests and works accordingly. 
+1. Download Project via .zip file or git clone 
+2. Open Terminal
+3. Navigate to project: 
+    User/My-Mastermind user$ 
+4. 
+    compile && run: make && ./my_mastermind
+    exit: Ctrl + D
 ```
 ./my_project argument1 argument2
 ```
