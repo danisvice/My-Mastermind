@@ -15,13 +15,13 @@
 // change naming conv (user/code (buf))
 
 //*(buf)++; ! (*buf)++
-void print_char_buf(char* buf, int size)
-{
-    printf("[ ");
-    while (size--)
-    printf(size == 0 ? "\'%c\'" : "\'%c\', ", *buf++);
-    printf(" ]\n");
-}
+// void print_char_buf(char* buf, int size)
+// {
+//     printf("[ ");
+//     while (size--)
+//     printf(size == 0 ? "\'%c\'" : "\'%c\', ", *buf++);
+//     printf(" ]\n");
+// }
 
 // Generate random code if none specified
 void generate_code(char* code) 
@@ -188,7 +188,7 @@ int main(int argc, char **argv)
             continue;
         
         //sizeof operator less efficient here!
-        print_char_buf(guess, sizeof(guess));
+        //print_char_buf(guess, sizeof(guess));
         
         check_placing(guess, code, &well_placed, &misplaced);
         if (iswin(well_placed) == true) 
