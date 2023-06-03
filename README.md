@@ -30,5 +30,5 @@ ex: ```User/My-Mastermind user$```
     compile && run: ```make && ./my_mastermind```
     exit: ```Ctrl + D```
 
-![Alt text](/Users/danny/Desktop/my_mastermind_prev.png)
+![Alt text](my_mastermind_prev.png)
 
