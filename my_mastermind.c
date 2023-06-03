@@ -8,7 +8,7 @@
 #include <ctype.h>      // isdigit(3) <-- implement my_isdigit(3)
 #include <stdbool.h>    // bool typedef
 
-#define ROUND_LEN   10
+#define ROUND_LEN   11
 #define CODE_LEN    4
 #define READ_LEN    5
 // #define LINE_LEN    (READ_LEN + 1)
@@ -111,7 +111,7 @@ int main(int argc, char **argv)
     // code non-init might be random memory values
     // code = [123402983, 0, 0, 2343434, 0023434] not initialized
     char code[CODE_LEN + 1] = {0}, input = '0';
-    int rounds = ROUND_LEN, round = 0, index = 0, well_placed, misplaced;
+    int rounds = ROUND_LEN, round = 1, index = 0, well_placed, misplaced;
     // ! bool guess2short = false;
     bool valid_input = true;
     // ssize_t => signed long int (nb_bytes_read with -1 as error)
